@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('images/template1.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+}
+
+.glass-container {
+    padding: 20px;
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}

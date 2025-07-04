@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes & Shayari</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="glass-container">
+        <h1>Quotes & Shayari</h1>
+        <div id="auth-section">
+            <button onclick="googleLogin()">Login with Google</button>
+            <button onclick="anonLogin()">Anonymous Login</button>
+            <p id="user-status"></p>
+        </div>
+        <div id="quote-section">
+            <p id="quote-content"></p>
+            <p id="quote-author"></p>
+            <button onclick="fetchRandomQuote()">New Quote</button>
+            <button onclick="downloadQuote()">Download Image</button>
+            <button onclick="shareQuote()">Share Quote</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
+    <script src="firebaseConfig.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
