@@ -1,0 +1,15 @@
+{
+  "name": "Quotes & Shayari",
+  "short_name": "QuotesApp",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f9f9fa",
+  "description": "A modern Quotes and Shayari app",
+  "icons": [
+    {
+      "src": "images/template1.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

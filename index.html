@@ -1,33 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quotes & Shayari</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="manifest" href="manifest.json">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quotes & Shayari</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="glass-container">
-        <h1>Quotes & Shayari</h1>
-        <div id="auth-section">
-            <button onclick="googleLogin()">Login with Google</button>
-            <button onclick="anonLogin()">Anonymous Login</button>
-            <p id="user-status"></p>
-        </div>
-        <div id="quote-section">
-            <p id="quote-content"></p>
-            <p id="quote-author"></p>
-            <button onclick="fetchRandomQuote()">New Quote</button>
-            <button onclick="downloadQuote()">Download Image</button>
-            <button onclick="shareQuote()">Share Quote</button>
-        </div>
+  <!-- Navigation Bar -->
+  <nav class="navbar glass">
+    <div class="nav-left">
+      <a href="#" class="nav-link">Home</a>
+      <a href="#" class="nav-link">Privacy Policy</a>
+      <a href="#" class="nav-link">Disclaimer</a>
+      <a href="#" class="nav-link">Terms & Conditions</a>
     </div>
+    <div class="nav-right" id="userInfo">
+      <span id="user-display">Login</span>
+      <img id="user-avatar" src="images/avatar-default.png" alt="avatar" class="avatar">
+    </div>
+  </nav>
 
-    <!-- Scripts -->
-    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
-    <script src="firebaseConfig.js"></script>
-    <script src="app.js"></script>
+  <!-- Welcome Page -->
+  <section id="welcomePage" class="center-section glass-big">
+    <h1>Welcome to Quotes & Shayari</h1>
+    <blockquote id="welcome-quote">
+      “Where words leave off, poetry begins.”
+    </blockquote>
+    <button class="big-btn" onclick="showAuthPage()">Get Started</button>
+  </section>
+
+  <!-- Auth Page (Hidden initially) -->
+  <section id="authPage" class="center-section glass-big hidden">
+    <div class="auth-flex">
+      <!-- Login Form -->
+      <div class="auth-card">
+        <h2>Login</h2>
+        <input type="email" id="login-email" placeholder="Email">
+        <input type="password" id="login-password" placeholder="Password">
+        <button onclick="loginUser()">Login</button>
+        <p><a href="#" onclick="showReset()">Forgot Password?</a></p>
+      </div>
+      <!-- Sign Up Form -->
+      <div class="auth-card">
+        <h2>Sign Up</h2>
+        <input type="email" id="signup-email" placeholder="Email">
+        <input type="password" id="signup-password" placeholder="Password">
+        <input type="text" id="signup-name" placeholder="Name">
+        <select id="signup-sex">
+          <option value="">Sex</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+        <textarea id="signup-about" placeholder="About yourself"></textarea>
+        <div class="accept-terms">
+          <input type="checkbox" id="accept-terms">
+          <label for="accept-terms">I accept the <a href="#">Privacy Policy</a> & <a href="#">Terms & Conditions</a></label>
+        </div>
+        <button onclick="signupUser()">Sign Up</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main App Page (Hidden initially) -->
+  <section id="mainPage" class="center-section glass-big hidden">
+    <div id="quote-section">
+      <div id="quote-card">
+        <p id="quote-content">Loading...</p>
+        <p id="quote-author"></p>
+        <p id="quote-mood"></p>
+      </div>
+      <button onclick="fetchRandomQuote()">New Quote</button>
+      <button onclick="downloadQuoteImage()">Download Image</button>
+      <button onclick="shareQuote()">Share</button>
+    </div>
+  </section>
+
+  <!-- JS Libraries and Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth-compat.js"></script>
+  <script src="firebaseConfig.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
